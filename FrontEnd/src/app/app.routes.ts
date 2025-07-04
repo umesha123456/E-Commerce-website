@@ -3,11 +3,10 @@ import { HomeComponent } from './home/home.component';
 import { CartComponent } from './cart/cart.component';
 import { ProductComponent } from './product/product.component';
 import { PaymentSuccessComponent } from './payment/payment-success/payment-success.component';
-import { AdminComponent } from './admin/admin.component'; // Create this component
-// import { LoginComponent } from './login/login.component'; // Create this component
-import { AuthGuard } from './core/services/guards/auth.guard'; // Adjust path if needed
-import { AdminGuard } from './core/services/guards/admin.guard'; // Adjust path if needed
 
+// Import your new components
+import { LoginComponent } from './auth/login/login.component';
+import { RegisterComponent } from './auth/register/register.component';
 
 export const routes: Routes = [
   {
@@ -26,14 +25,13 @@ export const routes: Routes = [
     path: 'PaymentSuccess',
     component: PaymentSuccessComponent,
   },
+  // Add these routes for authentication:
   {
-    path: 'admin',
-    component: AdminComponent,
-    canActivate: [AuthGuard, AdminGuard]
+    path: 'login',
+    component: LoginComponent,
   },
-  // {
-  //   path: 'login',
-  //   component: LoginComponent,
-  // },
+  {
+    path: 'register',
+    component: RegisterComponent,
+  },
 ];
-
